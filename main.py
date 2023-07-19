@@ -62,9 +62,6 @@ def get_data(html):
 
         write_to(product_dict)
 
-        for i in product_dict:
-            f = 'вы успешно спарсили'
-            print(i, f'{f}')
 
 def main():
     base_url = 'https://www.mashina.kg/search/all/'
@@ -74,6 +71,7 @@ def main():
         url_with_page = base_url + f'?page={i}'
         html = get_html(url_with_page)
         get_data(html)
+        print(f' спарсили {i} - страницу')
 
 with open('data.csv', 'w') as file:
    writer = csv.writer(file)
